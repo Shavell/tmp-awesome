@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	_ "github.com/godror/godror"
+	_ "github.com/sijms/go-ora"
 )
 
 func main() {
@@ -18,8 +18,8 @@ func main() {
 	password := os.Args[2]
 	connString := os.Args[3]
 
-	dsn := fmt.Sprintf("user=%s password=%s connectString=%s", username, password, connString)
-	db, err := sql.Open("godror", dsn)
+	dsn := fmt.Sprintf("oracle://%s:%s@%s", username, password, connString)
+	db, err := sql.Open("oracle", dsn)
 	if err != nil {
 		log.Fatalf("Failed to open connection: %v", err)
 	}
