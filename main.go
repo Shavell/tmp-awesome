@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	_ "github.com/sijms/go-ora"
+	_ "github.com/mattn/go-oci8"
 )
 
 func main() {
@@ -18,8 +18,8 @@ func main() {
 	password := os.Args[2]
 	connString := os.Args[3]
 
-	dsn := fmt.Sprintf("oracle://%s:%s@%s", username, password, connString)
-	db, err := sql.Open("oracle", dsn)
+	dsn := fmt.Sprintf("%s/%s@%s", username, password, connString)
+	db, err := sql.Open("oci8", dsn)
 	if err != nil {
 		log.Fatalf("Failed to open connection: %v", err)
 	}

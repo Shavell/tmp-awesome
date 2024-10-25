@@ -2,4 +2,4 @@ module main
 
 go 1.21
 
-require github.com/sijms/go-ora v1.3.2
+require github.com/mattn/go-oci8 v0.1.1
